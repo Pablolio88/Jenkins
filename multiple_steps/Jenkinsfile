@@ -1,9 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Hello') {
             steps {
                 sh 'echo "Hello World!"'
+            }
+        }
+        stage('Content') {
+            steps {
                 sh '''
                     echo "It's multiline"
                     cd /var/jenkins_home
