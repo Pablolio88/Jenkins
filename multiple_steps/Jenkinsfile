@@ -6,6 +6,7 @@ pipeline {
                 sh 'echo "Hello World!"'
                 sh '''
                     echo "It's multiline"
+                    cd /home/pavel/Jenkins
                     ls -lah
                 '''
             }
