@@ -12,6 +12,7 @@ pipeline {
                     echo "It's multiline"
                     cd /var/jenkins_home
                     ls -lah
+                    date
                 '''
             }
         }
