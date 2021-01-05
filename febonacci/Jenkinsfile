@@ -1,16 +1,26 @@
 pipeline {
-    agent {
-        node {
-        label 'agent'
-        }
-    }
+    agent none
     stages {
-        stage ('Deply') {
+        stage ('Deploy') {
+            agent {
+                    node {
+                        label 'master'
+                    }
+                }
             steps {
                 timeout(time: 1, unit: 'MINUTES') {
                     sh '/var/jenkins_home/scripts/fibonacci.sh 5'
                 }
-                timeout(time: 1, unit: 'MINUTES') {
+            }
+        }
+        stage ('Build') {
+            agent {
+                    node {
+                        label 'master'
+                    }
+                }
+            steps {
+            timeout(time: 1, unit: 'MINUTES') {
                     sh '/var/jenkins_home/scripts/fibonacci.sh 32'
                 }
             }
