@@ -15,13 +15,13 @@ pipeline {
         }
         stage ('Build') {
             agent {
-                    node {
-                        label 'agent'
+                    docker {
+                        image 'node:9-alpine'
                     }
                 }
             steps {
-            timeout(time: 1, unit: 'MINUTES') {
-                    sh '/var/jenkins_home/scripts/fibonacci.sh 32'
+ #           timeout(time: 1, unit: 'MINUTES') {
+                    sh 'node --version'
                 }
             }
         }
