@@ -9,15 +9,13 @@ pipeline {
                 }
             steps {
                 timeout(time: 1, unit: 'MINUTES') {
-                    sh '/var/jenkins_home/scripts/fibonacci.sh 1'
+                    sh '/var/jenkins_home/scripts/fibonacci.sh 5'
                 }
             }
         }
         stage ('Build') {
             agent {
-                    docker {
-                        image 'alpine:latest'
-                    }
+                    { label 'aws_ec2' }
                 }
             steps {
                     sh 'node --version'
