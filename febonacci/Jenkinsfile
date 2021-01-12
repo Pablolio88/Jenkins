@@ -15,7 +15,7 @@ pipeline {
         }
         stage ('Build') {
             agent {
-                    { label 'aws_ec2' }
+                    node { label 'aws_ec2' }
                 }
             steps {
                     sh 'node --version'
