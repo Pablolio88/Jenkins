@@ -1,4 +1,4 @@
-// First Pipe
+// First Pipeline
 pipeline {
     agent none
     stages {
