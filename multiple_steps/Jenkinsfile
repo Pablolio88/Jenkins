@@ -1,3 +1,4 @@
+// Pipe
 pipeline {
     agent { node { label 'agent' } }
     stages {
