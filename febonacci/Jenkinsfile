@@ -25,15 +25,15 @@ pipeline {
                 archiveArtifacts artifacts: 'output.txt', onlyIfSuccessful: true
             }
         }
-        stage ('Build') {
-            agent {
-                    node { 
-                        label 'aws_ec2'
-                   }
-                }
-            steps {
-                    sh 'git --version'
-                }
-            }       
+        // stage ('Build') {
+        //     agent {
+        //             node { 
+        //                 label 'aws_ec2'
+        //            }
+        //         }
+        //     steps {
+        //             sh 'git --version'
+        //         }
+        //     }       
     }
 }
