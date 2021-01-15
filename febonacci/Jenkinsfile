@@ -11,8 +11,11 @@ pipeline {
             steps {
                 timeout(time: 1, unit: 'MINUTES') {
                     sh '/var/jenkins_home/scripts/fibonacci.sh 5' > output.txt
+                    cat output.txt
                 }
             }
+        }
+        stage ('Archive') {
             steps {
                 archiveArtifacts artifacts: 'output.txt', onlyIfSuccessful: true
             }
@@ -26,6 +29,6 @@ pipeline {
             steps {
                     sh 'git --version'
                 }
-            }
+            }       
     }
 }
