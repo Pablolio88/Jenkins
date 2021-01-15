@@ -13,6 +13,9 @@ pipeline {
                     sh '/var/jenkins_home/scripts/fibonacci.sh 5' > output.txt
                 }
             }
+            steps {
+                archiveArtifacts artifacts: 'output.txt', onlyIfSuccessful: true
+            }
         }
         stage ('Build') {
             agent {
@@ -24,10 +27,5 @@ pipeline {
                     sh 'git --version'
                 }
             }
-        stage ('Archive') {
-            steps {
-                archiveArtifacts artifacts: 'output.txt', onlyIfSuccessful: true
-            }
-        }
     }
 }
