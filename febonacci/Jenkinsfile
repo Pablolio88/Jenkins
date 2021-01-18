@@ -22,7 +22,7 @@ pipeline {
                     }
                 }
             steps {
-                archiveArtifacts artifacts: 'output.txt', onlyIfSuccessful: true
+                archiveArtifacts artifacts: 'output.txt', fingerprint: true, onlyIfSuccessful: true
             }
         }
         // stage ('Build') {
