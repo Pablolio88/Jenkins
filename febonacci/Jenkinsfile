@@ -10,7 +10,7 @@ pipeline {
                 }
             steps {
                 timeout(time: 1, unit: 'MINUTES') {
-                    sh '/var/jenkins_home/scripts/fibonacci.sh 5 > output.txt'
+                    sh '/var/jenkins_home/scripts/fibonacci.sh 4 > output.txt'
                     sh 'cat output.txt'
                 }
             }
